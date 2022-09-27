@@ -30,7 +30,7 @@ function App() {
     <div className="flex flex-col justify-center w-full items-center h-[100vh]">
       <h1 className="text-[30px] font-bold mt-12">Welcome to Meme generator</h1>
       <h2 className="text-[25px] my-8">Choose an Image to Start Creating</h2>
-      <div className="flex flex-row overflow-scroll w-1/2 h-[200px] scrollbar-hide border-solid border-2 border-indigo-400 p-2">
+      <div className="flex flex-row overflow-scroll w-1/2 h-[200px] scrollbar-hide border-solid border-2 border-black p-2">
         {memes.map(meme => {
           return (
             <img onClick={handleImageClick} className="w-40 mx-4 cursor-pointer" key={meme.id} src={meme.url} alt={meme.name} />
