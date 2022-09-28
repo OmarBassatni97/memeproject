@@ -8,6 +8,7 @@ function App() {
   const [textOne, setTextOne] = useState('')
   const [textTwo, setTextTwo] = useState('')
   const [color,setColor] = useState('')
+  const [font, setFont] = useState('')
   useEffect(() => {
     fetch('https://api.imgflip.com/get_memes')
       .then(response => response.json())
@@ -52,12 +53,22 @@ function App() {
         </div>
         <div className="flex justify-evenly gap-2 mb-4">
           <button onClick={handleReset} className="border-transparent rounded p-2 bg-indigo-400">Reset</button>
+          <div>
+            <label className="mr-3 font-bold" htmlFor="select">Font:</label>
+          <select name="font" id=""  onChange={(e)=> setFont(e.target.value)}>
+            <option value="" selected >Default</option>
+            <option value="fantasy">fantasy</option>
+            <option value="monoscope">monoscope</option>
+            <option value="sans-serif">sans-serif</option>
+          </select>
+          </div>
+          
           <button onClick={handleCaps} className="border-transparent rounded p-2 bg-indigo-400">CAPS</button>
         </div>
         <div className="relative">
           {showImage && <img className="w-full h-96 " src={selectedMeme} alt={selectedMeme} />}
-          <p className="absolute top-0 left-8 font-bold text-lg" style={{color: color}}>{textOne}</p>
-          <p className="absolute bottom-0 left-8 font-bold text-lg" style={{color: color}}>{textTwo}</p>
+          <p className="absolute top-0 left-8 font-bold text-[25px]" style={{color: color,fontFamily:font}}>{textOne}</p>
+          <p className="absolute bottom-0 left-8 font-bold text-[25px]" style={{color: color,fontFamily:font}}>{textTwo}</p>
         </div>
 
       </div>
